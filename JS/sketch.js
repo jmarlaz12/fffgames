@@ -85,8 +85,8 @@ function Ball() {
 }
 
 function preload() {
-    images.push(pizzaImage = loadImage('/fffgames/Images/pizza.png'));
-    images.push(burgerImage = loadImage('/fffgames/Images/burger.png'));
+    images.push(pizzaImage = loadImage('/Images/brick.png'));
+    images.push(burgerImage = loadImage('/Images/burger.png'));
 }
 
 function setup() {
@@ -123,7 +123,10 @@ function draw() {
             if (bricks[j].r > 65) {
                 console.log("the image is larger than half");
                 bricks[j].r = bricks[j].r / 2;
+            } else {
+                bricks.splice(j, 1);
             }
+            ball.direction.y *= -1;
         }
     }
 }
