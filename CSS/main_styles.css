@@ -98,10 +98,10 @@ a{
     outline: none;
     border: none;
     border-radius: 25px;
-    text-align: center;
-
+    text-align: left;
     font-family: "OpenSans-Light";
     color: #000;
+    padding-left: 1em;
 }
 
 .button_search{
