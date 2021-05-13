@@ -169,7 +169,7 @@ body::-webkit-scrollbar{
 
 .game:hover{
     box-shadow: 0 0.5rem 2rem rgba(253, 200, 48, 1);
-    transform: translateY(-1rem);
+    transform: translateY(-1rem) !important;
 }
 
 .game .img-cover{
