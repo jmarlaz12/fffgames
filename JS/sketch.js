@@ -4,6 +4,17 @@ var images = [];
 var paddle;
 var ball;
 var bricks = [];
+var element = document.getElementById("game");
+var positionInfo = element.getBoundingClientRect();
+var gwidth = positionInfo.width;
+var gheight = positionInfo.height;
+
+window.addEventListener("keydown", function (e) {
+    if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
+
 
 function Paddle() {
     this.w = 150;
@@ -85,12 +96,13 @@ function Ball() {
 }
 
 function preload() {
-    images.push(pizzaImage = loadImage('/Images/brick.png'));
-    images.push(burgerImage = loadImage('/Images/burger.png'));
+    images.push(pizzaImage = loadImage('/fffgames/Images/game-pizza.png'));
+    images.push(burgerImage = loadImage('/fffgames/Images/game-burger.png'));
 }
 
 function setup() {
-    createCanvas(700, 700);
+    var myCanvas = createCanvas(gwidth - 50, gheight);
+    myCanvas.parent("game");
     paddle = new Paddle();
     ball = new Ball();
 

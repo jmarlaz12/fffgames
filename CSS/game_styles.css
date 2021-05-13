@@ -1,0 +1,165 @@
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+/* --------------- Grid Layout Begins Here --------------- */
+
+body{
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "article icons percentages"
+    "footer footer footer";
+    grid-template-rows: 80px 1fr 70px;
+    grid-template-columns: 1fr 10% 10%;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+    height: 100vh;
+    margin: 0;
+    background-color: #fdc830;
+    font-family: "Open Sans", sans-serif;
+}
+.scroll-hide {
+    overflow: auto;
+    overflow: -moz-scrollbars-none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+  
+.scroll-hide::-webkit-scrollbar { 
+    width: 0 !important;
+    display: none; 
+}
+
+header, footer, article, div{
+    padding: 1.2em;
+    background: #737373;
+}
+
+.nav{
+    grid-area: header;
+}
+
+.game{
+    grid-area: article;
+}
+
+.icon-div{
+    grid-area: icons;
+}
+
+.percentage-div{
+    grid-area: percentages;
+}
+
+.footer{
+    grid-area: footer;
+}
+
+@media all and (max-width: 575px) {
+    body { 
+      grid-template-areas: 
+        "header"
+        "article"
+        "percentages"
+        "icons"
+        "footer";
+      grid-template-rows: 80px 1fr 70px 1fr 70px;  
+      grid-template-columns: 1fr;
+    }
+}
+
+/* --------------- Nav Bar Begins Here --------------- */
+
+.site_name{
+    font-family: "Shrikhand", cursive;
+    color: #fee140;
+    font-size: xx-large;
+    text-shadow: -1px 0 #ff32af, 0 1px #ff32af, 1px 0 #ff32af, 0 -1px #ff32af;
+    margin-bottom: 1%;
+    margin-top: 0;
+    margin-left: 1%;
+    display: inline-block;
+}
+
+.button_normal{
+    float: right;
+    margin-left: 1rem;
+    background-color: #fdc830;
+    outline: none;
+    border: none;
+    border-radius: 11px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+/* --------------- Icons Begins Here --------------- */
+
+.img-cover{
+    padding-top: 30%;
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.img-cover img{
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --------------- Percentages Begins Here --------------- */
+
+.progress{
+    margin-top: 60%;
+    padding-left: 0;
+    position: relative;
+    width: 100%;
+    background-color: #fdc830;
+    border-radius: 15px;
+    transform: translateX(-5%);
+}
+
+.progress .bar{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #ff32af;
+    width: 0%;
+    border-radius: 15px;
+    animation: progres 4s infinite linear;
+}
+
+/* @keyframes progres{
+    0%{
+      width: 0%;
+    }
+    25%{
+        width: 50%;
+    }
+    50%{
+        width: 75%;
+    }
+    75%{
+        width: 78%;
+    }
+}; */
+
+/* --------------- Footer Begins Here --------------- */
+.items{
+    float: right;
+}
+
+.items a:link, .items a:visited{
+    padding: 0.25rem 1rem;
+    color: #fdc830;
+    font-size: 1.4rem;
+    transition: 0.6s;
+}
+
+.items a:hover{
+    color: #ff32af;
+}
