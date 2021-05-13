@@ -1,18 +1,18 @@
-@font-face {
-    font-family: "Shrikhand-Regular";
-    src: url("/Fonts/Shrikhand/Shrikhand-Regular.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "OpenSans-Light";
-    src: url("/Fonts/Open_Sans/OpenSans-Light.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
+a{
+    color: inherit;
+    text-decoration: none;
 }
 
 /* --------------- Header Content Begins Here --------------- */
+
+.fixed{
+    position: fixed;
+    top: .5rem;
+    left: .5rem;
+    width: 99%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.9);
+    z-index: 3000;
+}
 
 .button_normal{
     background-color: #fdc830;
@@ -22,25 +22,25 @@
     display: inline-block;
     margin-bottom: 2%;
 
-    font-family: "OpenSans-Light";
+    font-family: "Open Sans", sans-serif;
     text-align: center;
 }
 
-.outside_border{
+.header_border{
     width: 100%;
     height: 100%;
     position: relative;
     background-color: #737373;
 }
 
-.outside_border::after{
+.header_border::after{
     content: "";
     background-color: #a6a6a6;
     position: absolute;
-    top: -10%;
+    top: -11%;
     left: -1%;
     right: -1%;
-    bottom: -10%;
+    bottom: -11%;
     z-index: -1;
 }
 
@@ -58,7 +58,7 @@
 }
 
 .site_name{
-    font-family: "Shrikhand-Regular";
+    font-family: "Shrikhand", cursive;
     color: #fee140;
     font-size: xx-large;
     text-shadow: -1px 0 #ff32af, 0 1px #ff32af, 1px 0 #ff32af, 0 -1px #ff32af;
@@ -136,8 +136,111 @@ body::-webkit-scrollbar{
     display: none;
 }
 
-.game_frame{
+.section{
+    margin: 5rem auto 5rem auto;
+    padding: 5rem 0 5rem 0;
+}
+
+.container{
+    max-width: 120rem;
+    margin: 0 10rem;
+}
+
+.game-section{
+    background-color: #737373;
+}
+
+.game-center{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 6rem;
+}
+
+.game{
+    position: relative;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 0.5rem 2rem rgba(255, 50, 175, 1);
+    transition: all 300ms ease-in-out;
+    text-align: center;
+    border-radius: 0.5rem;
+
+}
+
+.game:hover{
+    box-shadow: 0 0.5rem 2rem rgba(253, 200, 48, 1);
+    transform: translateY(-1rem);
+}
+
+.game .img-cover{
+    border-radius: 10%;
+    width: 15rem;
+    height: 15rem;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.game .img-cover img{
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --------------- Footer Content Begins Here --------------- */
+
+.footer_border{
+    width: 97.5vw;
+    position: relative;
+    background-color: #737373;
+}
+
+.footer_border::after{
+    content: "";
+    background-color: #a6a6a6;
+    position: absolute;
+    top: -5%;
+    left: -1%;
+    right: -1%;
+    bottom: -5%;
+    z-index: -1;
+}
+
+.footer{
+    padding: 1rem 1rem;
+    line-height: 3rem;
+}
+
+.footer-site_name-fix{
+    margin-left: 0;
+}
+
+.footer-container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2vw;
+    text-align: left;
+    color: #fdc830;
+}
+
+.footer-col{
+    margin-right: 1rem;
+}
+
+.footer-col a:link, .footer-col a:visited{
+    padding: 0.25rem 1rem;
+    display: table;
+    color: #fdc830;
+    font-size: 1.4rem;
+    transition: 0.6s;
+}
+
+.footer-col a:hover{
+    color: #ff32af;
+}
+
+.footer-col div{
+    font-size: 1.4rem;
+}
+
+.footer-col h3{
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
 }
