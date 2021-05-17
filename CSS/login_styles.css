@@ -163,6 +163,6 @@ h2 {
   background: rgba(255, 50, 175, 1);
 }
 
-.block-cube.block-cube-hover:focus .bg .bg-inner  {
+.block-cube.block-cube-hover:focus .bg .bg-inner, .block-cube.block-cube-hover:hover .bg .bg-inner  {
   top: 100%;
 }
