@@ -4,10 +4,23 @@ var images = [];
 var paddle;
 var ball;
 var bricks = [];
+var playingGame = false;
+var youWin = false;
+var youLose = false;
+var winText;
+var loseText;
+var instructions;
+
+var lives = 3;
+
 var element = document.getElementById("game");
 var positionInfo = element.getBoundingClientRect();
 var gwidth = positionInfo.width;
 var gheight = positionInfo.height;
+
+var percentBacteria = document.getElementById("bacteria");
+var percentVirus = document.getElementById("virus");
+var percentLives = document.getElementById("heart-bar");
 
 window.addEventListener("keydown", function (e) {
     if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].indexOf(e.code) > -1) {
@@ -96,8 +109,8 @@ function Ball() {
 }
 
 function preload() {
-    images.push(pizzaImage = loadImage('/fffgames/Images/game-pizza.png'));
-    images.push(burgerImage = loadImage('/fffgames/Images/game-burger.png'));
+    images.push(pizzaImage = loadImage('/fffgames/Images/bacteria.png'));
+    images.push(burgerImage = loadImage('/fffgames/Images/virus.png'));
 }
 
 function setup() {
@@ -109,18 +122,30 @@ function setup() {
     for (let i = 0; i < 10; i++) {
         bricks.push(new Brick());
     }
+
+    createText();
 }
 
 function draw() {
+
+
+    if (playingGame) {
+        instructions.style('color', 'white');
+        instructions.style('display', 'none');
+    } else {
+        instructions.style('color', 'white');
+        instructions.style('display', 'block');
+    }
+
     background(0);
 
     paddle.display();
-    paddle.update();
-    paddle.checkEdges();
+    if (playingGame) paddle.update();
+    if (playingGame) paddle.checkEdges();
 
     ball.display();
-    ball.update();
-    ball.checkEdges();
+    if (playingGame) ball.update();
+    if (playingGame) ball.checkEdges();
 
     for (let i = 0; i < bricks.length; i++) {
         bricks[i].display();
@@ -141,6 +166,38 @@ function draw() {
             ball.direction.y *= -1;
         }
     }
+
+    if (ball.pos.y > height) {
+        lives--;
+        if (lives === 2) percentLives.style.width = "53.33%";
+        if (lives === 1) percentLives.style.width = "26.66%";
+        playingGame = false;
+        ball.pos = createVector(width / 2, height / 2);
+        if (lives === 0) {
+            percentLives.style.width = "0%"
+            youLose = true;
+            bricks.splice(0, bricks.length);
+        }
+    }
+
+    if (bricks.length === 0 && lives != 0) {
+        youWin = true;
+        playingGame = false;
+    }
+
+    winText.style('color', 'white');
+    loseText.style('color', 'white');
+    if (youWin) {
+        winText.style('display', 'block');
+    } else {
+        winText.style('display', 'none');
+    }
+
+    if (youLose) {
+        loseText.style('display', 'block');
+    } else {
+        loseText.style('display', 'none');
+    }
 }
 
 function keyPressed() {
@@ -151,8 +208,10 @@ function keyPressed() {
     } else if (key === 's' || key === 'S') {
         playingGame = true;
         youWin = false;
+        youLose = false;
         if (bricks.length === 0) {
-            for (var i = 0; i < 20; i++) {
+            lives = 3;
+            for (var i = 0; i < 10; i++) {
                 bricks.push(new Brick());
             }
             ball.pos.x = width / 2;
@@ -164,6 +223,17 @@ function keyPressed() {
 function keyReleased() {
     paddle.isMovingLeft = false;
     paddle.isMovingRight = false;
+}
+
+function createText() {
+    winText = createP("YOU WIN!!");
+    winText.position(width / 2 - 50, 120);
+
+    loseText = createP("YOU LOSE!");
+    loseText.position(width / 2, 120);
+
+    instructions = createP("S: Start");
+    instructions.position(gwidth - (gwidth - 30), gheight - (gheight - 110));
 }
 
 

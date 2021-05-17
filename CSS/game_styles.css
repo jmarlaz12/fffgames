@@ -133,6 +133,10 @@ header, footer, article, div{
     animation: progres 4s infinite linear;
 }
 
+#hearts .bar{
+    width: 80%;
+}
+
 /* @keyframes progres{
     0%{
       width: 0%;

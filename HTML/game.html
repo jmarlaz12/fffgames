@@ -11,9 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
 
     <!-- P5 Library -->
-    <script src="/fffgames/libraries/p5.dom.js" type="text/javascript"></script>
     <script src="/fffgames/libraries/p5.js" type="text/javascript"></script>
     <script src="/fffgames/libraries/p5.sound.js" type="text/javascript"></script>
+    <script src="/fffgames/libraries/p5.dom.js" type="text/javascript"></script>
 
     <link rel="stylesheet" href="/fffgames/CSS/game_styles.css">
     <title>Germ Killa</title>
@@ -33,10 +33,10 @@
 
     <div class="icon-div">
         <div class="img-cover">
-            <img src="/fffgames/Images/burger.png" alt="burger-icon">
+            <img src="/fffgames/Images/bacteria.png" alt="bacteria-icon">
         </div>
         <div class="img-cover">
-            <img src="/fffgames/Images/pizza.png" alt="pizza-icon">
+            <img src="/fffgames/Images/virus.png" alt="virus-icon">
         </div>
         <div class="img-cover">
             <img src="/fffgames/Images/heart.png" alt="heart-icon">
@@ -47,16 +47,16 @@
     </div>
 
     <div class="percentage-div">
-        <div class="progress" id="burgers">
+        <div class="progress" id="bacteria">
             <div class="bar"></div>
         </div>
 
-        <div class="progress" id="pizzas">
+        <div class="progress" id="virus">
             <div class="bar"></div>
         </div>
 
         <div class="progress" id="hearts">
-            <div class="bar"></div>
+            <div class="bar" id="heart-bar"></div>
         </div>
 
         <div class="progress" id="progress">
